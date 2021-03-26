@@ -1,0 +1,31 @@
+CREATE TABLE customer(
+	cid INTEGER Primary Key,
+	cname CHAR(80),
+	address CHAR(200)
+);
+
+CREATE TABLE book(
+	isbn CHAR(13) Primary Key,
+	title CHAR(80),
+	author CHAR(80),
+	qtyinstock INTEGER,
+	price REAL
+);
+
+CREATE TABLE orders(
+	ordernum INTEGER Primary KEy,
+	cid INTEGER,
+	order_date DATE,
+	cardnum CHAR(16),
+	Constraint fk_customer FOREIGN KEY (cid) REFERENCES customer(cid)
+);
+
+CREATE TABLE orderlist(
+	ordernum INTEGER,
+	cid INTEGER,
+	order_date DATE,
+	cardnum CHAR(16),
+	PRIMARY KEY(ordernum,isbn),
+	Constraint fk_orders FOREIGN KEY(ordernum) REFERENCES orders(ordernum),
+	Constraint fk_book FOREIGN KEY(isbn) REFERENCES book(isbn)
+);

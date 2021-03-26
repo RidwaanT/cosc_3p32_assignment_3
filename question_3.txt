@@ -1,0 +1,2 @@
+INSERT INTO book(isbn, title, author, qtyinstock, price)
+Values('0786918055','War of the Twins','Hickman, Tracy',5,10.88);

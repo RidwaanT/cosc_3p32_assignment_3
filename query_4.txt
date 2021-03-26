@@ -1,0 +1,1 @@
+SELECT cname from customer where cname NOT IN (SELECT cname FROM ((customer Inner Join orders ON customer.cid = orders.cid)));

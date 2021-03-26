@@ -1,0 +1,1 @@
+SELECT cid FROM orders, orderlist WHERE orders.ordernum = orderlist.ordernum AND qty = (select max(qty) FROM orderlist);
